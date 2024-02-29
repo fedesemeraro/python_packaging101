@@ -1,5 +1,4 @@
 # Python Packaging 101
-[![Documentation Status](https://readthedocs.org/projects/packaging101/badge/?version=latest)](https://packaging101.readthedocs.io/en/latest/?badge=latest)
 
 A brief tutorial about tips and tricks for packaging a python gui linked to cpp code, 
 and how to release it through conda-forge.
@@ -81,6 +80,20 @@ Use `cmd+shift+p` to select the interpreter on VS Code.
 
 ## Python Packaging
 
+### Installation
+
+We can install the package using: 
+
+```bash
+conda activate packaging101
+cd packaging101
+pip install .
+```
+
+We can now use `packaging101` both calling the gui from the terminal directly or by importing it as a python package.
+To test the code we can use the [test.ipynb](test.ipynb) notebook from within VS Code.
+
+
 ### Project file structure:
 ```
 └── 📁packaging101
@@ -100,20 +113,9 @@ Use `cmd+shift+p` to select the interpreter on VS Code.
     .gitignore
 ```
 
-### Installation
-
-We can install the package using: 
-
-```bash
-conda activate packaging101
-cd packaging101
-pip install .
-```
-
-We can now use `packaging101` both calling the gui from the terminal directly or by importing it as a python package.
-To test the code we can use the [test.ipynb](test.ipynb) notebook from within VS Code.
 
 ### Documentation
+[![Documentation Status](https://readthedocs.org/projects/packaging101/badge/?version=latest)](https://packaging101.readthedocs.io/en/latest/?badge=latest)
 
 Here is the docs (sphinx) file structure to be built on [readthedocs](https://readthedocs.org/):
 ```
@@ -130,6 +132,7 @@ Here is the docs (sphinx) file structure to be built on [readthedocs](https://re
 
 
 ### Tests and CI/CD
+![packaging101 Tests](https://github.com/fsemerar/python_packaging101/actions/workflows/test-packaging101.yml/badge.svg)
 
 Here is the file structure for testing packaging101 every time that a push happens to main:
 
