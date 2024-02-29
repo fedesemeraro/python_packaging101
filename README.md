@@ -10,19 +10,23 @@ and how to release it through conda-forge.
 - Setup passthrough [HECC Knowledgebase](https://www.nas.nasa.gov/hecc/support/kb/setting-up-ssh-passthrough_232.html) and enable multiplexing
 - Connect using: `ssh -XY pfe` and add function to `pfe:$~/.bashrc`:
 
-        gpu() {qsub -X -I -q v100@pbspl4 -l walltime=$2:00:00,select=1:model=sky_gpu:ncpus=16:ngpus=$1:mem=180g,place=vscatter:shared -W group_list=[ADD_GROUP]}
+```bash
+gpu() {qsub -X -I -q v100@pbspl4 -l walltime=$2:00:00,select=1:model=sky_gpu:ncpus=16:ngpus=$1:mem=180g,place=vscatter:shared -W group_list=[ADD_GROUP]}
+```
 
 - Request node using `gpu 1 24` and add the following in local:$~/.ssh/config
 
-        Host pfe-intgpu
-        HostName                r101i0n1
-        ProxyJump               pfe
-        ForwardAgent            yes
-        ForwardX11              yes
-        ControlMaster           auto
-        ServerAliveInterval     120
-        ServerAliveCountMax     2
-        User                    ADD_USERNAME
+```bash
+Host pfe-intgpu
+HostName                r101i0n1
+ProxyJump               pfe
+ForwardAgent            yes
+ForwardX11              yes
+ControlMaster           auto
+ServerAliveInterval     120
+ServerAliveCountMax     2
+User                    ADD_USERNAME
+```
 
 - Connect to node from VS Code (N.B. no internet connection!)
 - Request access to [Anaconda Nucleus](https://www.nas.nasa.gov/hecc/support/kb/managing-and-installing-python-packages-in-conda-environments_627.html) to create conda environments on NAS
@@ -32,7 +36,7 @@ and how to release it through conda-forge.
 
 Git is a powerful tool for keeping a version control of your package. To create a new repository:
 
-```
+```bash
 mkdir python_packaging101
 cd python_packaging101
 git init
@@ -55,7 +59,7 @@ install the dependencies you need (not only python!).
 
 Add the following to your `pfe:$~/.bashrc`: 
 
-```
+```bash
 module use -a /swbuild/analytix/tools/modulefiles
 module load miniconda3/v4
 export CONDA_ENVS_PATH=/nobackup/$USER/.conda/envs
@@ -66,7 +70,7 @@ source activate
 
 Then you can run this to create and activate the environment:
 
-```
+```bash
 conda env create --file environment.yaml 
 conda activate packaging101
 ```
@@ -99,9 +103,11 @@ Use `cmd+shift+p` to select the interpreter on VS Code.
 
 We can install the package using: 
 
-        conda activate packaging101
-        cd packaging101
-        pip install .
+```bash
+conda activate packaging101
+cd packaging101
+pip install .
+```
 
 We can now use `packaging101` both calling the gui from the terminal directly or by importing it as a python package.
 To test the code we can use the test.ipynb notebook from within VS Code.

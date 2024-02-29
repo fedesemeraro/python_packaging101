@@ -49,8 +49,8 @@ for module_name in MOCK_MODULES:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
-html_logo = "../../arcjetCV/gui/logo/arcjetCV_logo_white.png"
+# html_logo = ""
 html_theme_options = {
-    'logo_only': True,
+    'logo_only': False,
     'display_version': False,
 }
