@@ -1,0 +1,9 @@
+name: packaging101
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - pip
+  - pyside6
+  - jupyter
