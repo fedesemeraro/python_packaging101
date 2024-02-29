@@ -1,6 +1,7 @@
 # Python Packaging 101
+[![Documentation Status](https://readthedocs.org/projects/packaging101/badge/?version=latest)](https://packaging101.readthedocs.io/en/latest/?badge=latest)
 
-A brief tutorial of tips and tricks of how to package a python gui linked to cpp code, 
+A brief tutorial about tips and tricks for packaging a python gui linked to cpp code, 
 and how to release it through conda-forge.
 
 
