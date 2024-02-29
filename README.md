@@ -129,6 +129,18 @@ Here is the docs (sphinx) file structure to be built on [readthedocs](https://re
 ```
 
 
+### Tests and CI/CD
+
+Here is the file structure for testing packaging101 every time that a push happens to main:
+
+```
+└── 📁tests
+    └── test_utils.py
+└── 📁workflows
+    └── test-packaging101.yml
+```
+
+
 ## Release on conda-forge
 
 Lots of resources can be found [here](https://conda-forge.org/docs/maintainer/knowledge_base/). 
