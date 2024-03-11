@@ -29,7 +29,7 @@ jobs:
             x11-utils libxcb-cursor0 libopengl0 libegl1-mesa
       - name: Install conda dependencies
         run: |
-          conda env create -n packaging101 -c conda-forge python pip pyside6
+          conda env create --name packaging101 python pip conda-forge::pyside6
           conda init bash
           source ~/.bashrc
           conda activate packaging101
