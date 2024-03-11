@@ -20,14 +20,19 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+      - name: Install apt dependencies
         run: |
-          sudo apt-get update && sudo apt-get install libgl1 -y
-          conda env create --file environment.yaml
+          sudo apt-get update
+          sudo apt-get install -y libegl1 libdbus-1-3 libxkbcommon-x11-0 \
+            libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 \
+            libxcb-render-util0 libxcb-xinerama0 libxcb-xinput0 libxcb-xfixes0 \
+            x11-utils libxcb-cursor0 libopengl0 libegl1-mesa
+      - name: Install conda dependencies
+        run: |
+          conda env create -n packaging101 -c conda-forge python pip pyside6
           conda init bash
           source ~/.bashrc
           conda activate packaging101
-          python -m pip install --upgrade pip
           python -m  pip install -e .
           python -c "import packaging101"
       - name: Test with pytest
